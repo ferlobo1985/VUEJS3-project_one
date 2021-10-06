@@ -39,8 +39,29 @@
             {{ error }}
          </div>
 
+
+         <div class="list_of_names">
+            <div
+               v-for="(name,index) in names"
+               :key="name"
+               @click="removeName(index)"
+            >
+               {{ name }}
+            </div>
+         </div>
+
+         <div
+            v-if="isReady"
+         >
+            <div class="action_button" @click="showResults">
+               Check the looser
+            </div>
+         </div>
+
+
       </div>
       <div id="result" class="container" v-if="!state">
+         show the looser
       </div>
     </div>
 

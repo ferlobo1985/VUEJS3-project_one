@@ -8,6 +8,11 @@ const app = Vue.createApp({
             showError:false
         }
     },
+    computed:{
+        isReady(){
+            return this.names.length > 1;
+        }
+    },
     methods:{
         addNameToList(){
             const userName = this.inputName;
@@ -31,6 +36,12 @@ const app = Vue.createApp({
                 return false;
             }
             return true
+        },
+        removeName(index){
+            this.names.splice(index,1)
+        },
+        showResults(){
+            this.state = false;
         }
     }
 
