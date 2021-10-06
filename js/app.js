@@ -2,7 +2,7 @@
 const DEFAULT_STATE =  {
     state:true,
     inputName:'',
-    names:['Lisa','Ron','Steve'],
+    names:[],
     error:'',
     showError:false,
     result:''
