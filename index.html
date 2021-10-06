@@ -14,14 +14,27 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
+    
    <link rel="stylesheet" type="text/css" href="css/style.css">
- 
+   <script src="https://unpkg.com/vue@next"></script>
    <title>Who pays the bill</title>
 </head>
 <body>
 
     <div id="app">
-       APP
+      <div id="names" class="container" v-if="state">
+         <div class="logo">
+            <h1>Who pay the bill</h1>
+         </div>
+
+         <div class="input_container">
+            <input type="text" v-model.trim="inputName"/>
+            <button @click="addNameToList">Add</button>
+         </div>
+
+      </div>
+      <div id="result" class="container" v-if="!state">
+      </div>
     </div>
 
  </body>
