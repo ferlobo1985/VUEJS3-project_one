@@ -1,11 +1,23 @@
+
+const DEFAULT_STATE =  {
+    state:true,
+    inputName:'',
+    names:['Lisa','Ron','Steve'],
+    error:'',
+    showError:false,
+    result:''
+}
+
+
 const app = Vue.createApp({
     data(){
         return {
             state:true,
             inputName:'',
-            names:[],
+            names:['Lisa','Ron','Steve'],
             error:'',
-            showError:false
+            showError:false,
+            result:''
         }
     },
     computed:{
@@ -40,8 +52,33 @@ const app = Vue.createApp({
         removeName(index){
             this.names.splice(index,1)
         },
+        getRandomName(){
+            return this.names[Math.floor(Math.random() * this.names.length)]
+        },
+        generateResult(){
+            let rand = this.getRandomName();//lisa
+
+            if(this.result !== ''){
+                while (rand === this.result){
+                    rand = this.getRandomName();
+                }
+            }
+            this.result = rand;
+        },
         showResults(){
+            this.generateResult();
             this.state = false;
+        },
+        resetApp(){
+            this.state = true;
+            this.inputName ='';
+            this.names = [];
+            this.error = '';
+            this.showError = false;
+            this.result = '';
+        },
+        getNewResult(){
+            this.generateResult();
         }
     }
 

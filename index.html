@@ -63,7 +63,26 @@
 
       </div>
       <div id="result" class="container animate__animated animate__fadeIn" v-if="!state">
-         show the looser
+         <div class="result_container">
+            <h1>The looser is:</h1>
+            <div class="result_value">
+               {{ result }}
+            </div>
+
+
+            <div class="action_button"
+               @click="resetApp"
+            >
+               Start over
+            </div>
+            <br/>
+            <div class="action_button btn2"
+               @click="getNewResult"
+            >
+               Don't like it, get a new name
+            </div>
+
+         </div>
       </div>
     </div>
 
