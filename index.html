@@ -32,6 +32,13 @@
             <button @click="addNameToList">Add</button>
          </div>
 
+         <div
+            class="error_label"
+            v-if="showError"
+         >  
+            {{ error }}
+         </div>
+
       </div>
       <div id="result" class="container" v-if="!state">
       </div>
