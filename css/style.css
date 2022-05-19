@@ -43,6 +43,9 @@ input {
   padding: 10px;
   box-sizing: border-box;
 }
+input::placeholder {
+  color: #a9a9a9;
+}
 
 button {
   border-radius: 0px 5px 5px 0px;
