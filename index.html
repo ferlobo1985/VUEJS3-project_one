@@ -38,8 +38,25 @@
         </div>
 
         <div class="error_label" v-if="showError">{{error}}</div>
+
+        <div class="list_of_names">
+          <div
+            v-for="(name, index) in names"
+            :key="name"
+            @click="removeName(index)"
+          >
+            {{name}}
+          </div>
+        </div>
+
+        <div v-if="isReady">
+          <div class="action_button" @click="showResults">Check the loser!</div>
+        </div>
       </div>
-      <div id="results" class="container" v-if="!state"></div>
+
+      <div id="results" class="container" v-if="!state">
+         Result!
+      </div>
     </div>
   </body>
 
