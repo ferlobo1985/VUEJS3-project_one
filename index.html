@@ -23,7 +23,11 @@
   </head>
   <body>
     <div id="app">
-      <div id="names" class="container" v-if="state">
+      <div
+        id="names"
+        class="container animate__animated animate__fadeIn"
+        v-if="state"
+      >
         <div class="logo">
           <h1>Who pays the bill?</h1>
         </div>
@@ -56,11 +60,28 @@
         </div>
 
         <div v-if="isReady" class="animate__animated animate__bounceIn">
-          <div class="action_button" @click="showResults">Check the loser!</div>
+          <div class="action_button" @click="showResult">Check the loser!</div>
         </div>
       </div>
 
-      <div id="results" class="container animate__animated animate__fadeIn" v-if="!state">Result!</div>
+      <div
+        id="results"
+        class="container animate__animated animate__fadeIn"
+        v-if="!state"
+      >
+        <div class="result_container">
+          <h1>The loser is:</h1>
+          <div class="result_value animate__animated animate__wobble">
+            {{result}}
+          </div>
+
+          <div class="action_button" @click="resetApp">Start Over</div>
+          <br />
+          <div class="action_button btn2" @click="showResult">
+            Don't like it...?<br />Get a new name!
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 

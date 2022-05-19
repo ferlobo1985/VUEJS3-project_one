@@ -6,6 +6,7 @@ const app = Vue.createApp({
       names: [],
       error: "",
       showError: false,
+      result: "",
     };
   },
   computed: {
@@ -42,8 +43,32 @@ const app = Vue.createApp({
     removeName(index) {
       this.names.splice(index, 1);
     },
-    showResults() {
+    getRandomName() {
+      return this.names[Math.floor(Math.random() * this.names.length)];
+    },
+    generateResult() {
+      let rand = this.getRandomName();
+      if (this.result !== "") {
+        while (rand === this.result) {
+          rand = this.getRandomName();
+        }
+      }
+      this.result = rand;
+    },
+    showResult() {
+      this.generateResult();
       this.state = false;
+    },
+    resetApp() {
+      this.state = true;
+      this.inputName = "";
+      this.names = [];
+      this.error = "";
+      this.showError = false;
+      this.result = "";
+    },
+    getNewResult() {
+      this.generateResult();
     },
   },
 }).mount("#app");
